@@ -13,8 +13,8 @@
     ],
     "require": {
         "php": "^7.0",
-        "kevinlebrun/colors.php": "0.*",
-        "asana/asana": "^0.5.1"
+        "asana/asana": "^0.5.1",
+        "splitbrain/php-cli": "^1.1"
     },
     "autoload": {
         "psr-4": {
