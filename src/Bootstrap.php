@@ -28,6 +28,8 @@ class Bootstrap extends CLI
         $options->registerArgument('template', 'Indicates which template will be used (filename without extension)', false, 'make');
         $options->registerArgument('task-link', 'Indicates the URL of Asana\'s task', true, 'make');
         $options->registerOption('mr', 'Indicates the use of Merge Request (Gitlab)', 'm', false, 'make');
+        // hello command
+        $options->registerCommand('hello', 'Display a welcome message!');
     }
 
     protected function main(Options $options)

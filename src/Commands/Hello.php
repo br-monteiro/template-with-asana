@@ -7,7 +7,7 @@ use App\Helpers\FileManager as File;
 use App\Config as cfg;
 use App\Interfaces\Command;
 
-class Token implements Command
+class Hello implements Command
 {
 
     protected $options;
@@ -21,24 +21,23 @@ class Token implements Command
 
     public function run()
     {
-        $tokenValue = $this->options->getArgs();
         $fileName = __DIR__ . cfg::FILE_CONFIG;
-        $stdToken = null;
+        $tokenExists = false;
 
         if (File::validateFile($fileName)) {
             $fileContent = File::readFile($fileName);
             $stdToken = json_decode($fileContent);
-        } else {
-            $stdToken = new \stdClass();
+            $tokenExists = isset($stdToken->token) ?: false;
         }
-        
-        $stdToken->token = $tokenValue[0] ?? null;
-        $fileContent = json_encode($stdToken);
-        
-        if (File::createFile($fileName, $fileContent)) {
-            $this->bootstrap->success("Token successfully set");
-        } else {
-            $this->bootstrap->error("Failed to save the token");
+
+        $this->bootstrap->success("Bem-vindo! Aparentemente tudo está ok.");
+        if (!$tokenExists) {
+            $this->bootstrap->info("Agora é preciso gerar um token pessoal.\n"
+                . "Você pode gerar um token seguindo esta Doc.:\n"
+                . "https://asana.com/pt/guide/help/api/api" . "\n");
         }
+
+        $this->bootstrap->info("Você pode registrar ou alterar o token com o comando");
+        print "asana token <token>\n";
     }
 }
