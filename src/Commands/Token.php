@@ -5,8 +5,9 @@ use splitbrain\phpcli\Options;
 use App\Bootstrap;
 use App\Helpers\FileManager as File;
 use App\Config as cfg;
+use App\Interfaces\Command;
 
-class Token
+class Token implements Command
 {
 
     protected $options;
@@ -21,9 +22,9 @@ class Token
     public function run()
     {
         $tokenValue = $this->options->getArgs();
-        $fileName = getcwd() . cfg::DS . cfg::FILE_CONFIG;
+        $fileName = __DIR__ . cfg::FILE_CONFIG;
         $stdToken = null;
-        
+
         if (File::validateFile($fileName)) {
             $fileContent = File::readFile($fileName);
             $stdToken = json_decode($fileContent);
