@@ -200,7 +200,7 @@ class Make implements Command
         foreach ($hashTags as $name) {
             $templateLike = $template;
             $templateLike = str_replace(cfg::TAG, $name, $templateLike);
-            $value[] = '[#' . $name . '](' . $templateLike . ')';
+            $value[] = '[\#' . $name . '](' . $templateLike . ')';
         }
         if (count($value) > 0) {
             $hashTags = implode(', ', $value);
