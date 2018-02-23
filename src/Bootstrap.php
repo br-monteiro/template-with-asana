@@ -3,6 +3,7 @@ namespace App;
 
 use splitbrain\phpcli\CLI;
 use splitbrain\phpcli\Options;
+use App\Helpers\UpdaterLib;
 
 class Bootstrap extends CLI
 {
@@ -15,6 +16,7 @@ class Bootstrap extends CLI
     {
         $this->argv = $argv;
         parent::__construct($autocatch);
+        new UpdaterLib($this);
     }
 
     protected function setup(Options $options)
