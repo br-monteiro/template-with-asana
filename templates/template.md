@@ -1,19 +1,17 @@
 #### Asana task
 %LINK%
 
-## Description
+#### Description
 %DESCRIPTION%
-
 #### Tags
 %TAG%
+#### Followers
+%FOLLOWER%
 
-## Solution
+#### Solution
 %SOLUTION%
 
 #### Observation
 %OBSERVATION%
-
-#### Followers
-%FOLLOWER%
 
 %HASHTASG%
