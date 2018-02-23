@@ -8,7 +8,7 @@
  * @author Edson B S Monteiro <bruno.monteirodg@gmail.com>
  */
 // include the composer autoload
-require_once __DIR__ . 'vendor/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
 
 try {
     $app = new App\Bootstrap($argv);

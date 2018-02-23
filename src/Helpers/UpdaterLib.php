@@ -37,10 +37,16 @@ class UpdaterLib
     {
         if (isset($this->stdConfig->update)) {
             if (($this->stdConfig->update - time()) <= 0) {
-                $this->bootstrap->success("Updating system ...");
-                $rootDir = __DIR__ . cfg::DS;
-                $resultExecution = system('cd ' . $rootDir . ' && git pull origin master');
-                $this->bootstrap->info($resultExecution);
+                $this->bootstrap->info("Updating system ...");
+                $output = [];
+                $rootDir = __DIR__ . cfg::DS . '..' . cfg::DS . '..' . cfg::DS;
+                exec('cd ' . $rootDir . ' && git pull origin master', $output, $error);
+                if ($error === 1) {
+                    $this->bootstrap->error("Could not updating system");
+                    $this->update = false;
+                } else {
+                    $this->bootstrap->info(implode("\n", $output));
+                }
             } else {
                 $this->update = false;
             }

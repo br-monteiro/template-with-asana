@@ -14,9 +14,9 @@ class Bootstrap extends CLI
 
     public function __construct(array $argv, $autocatch = true)
     {
-        new UpdaterLib($this);
         $this->argv = $argv;
         parent::__construct($autocatch);
+        new UpdaterLib($this);
     }
 
     protected function setup(Options $options)
