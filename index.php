@@ -8,7 +8,11 @@
  * @author Edson B S Monteiro <bruno.monteirodg@gmail.com>
  */
 // include the composer autoload
-require_once 'vendor/autoload.php';
+require_once __DIR__ . 'vendor/autoload.php';
 
-$app = new App\Bootstrap($argv);
-$app->run();
+try {
+    $app = new App\Bootstrap($argv);
+    $app->run();
+} catch (\Exception $ex) {
+    system('echo $(tput setaf 1)' . $ex->getMessage() . '$(tput setaf 0)');
+}

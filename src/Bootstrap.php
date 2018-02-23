@@ -3,6 +3,7 @@ namespace App;
 
 use splitbrain\phpcli\CLI;
 use splitbrain\phpcli\Options;
+use App\Helpers\UpdaterLib;
 
 class Bootstrap extends CLI
 {
@@ -13,6 +14,7 @@ class Bootstrap extends CLI
 
     public function __construct(array $argv, $autocatch = true)
     {
+        new UpdaterLib($this);
         $this->argv = $argv;
         parent::__construct($autocatch);
     }
