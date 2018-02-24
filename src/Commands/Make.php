@@ -86,7 +86,7 @@ class Make implements Command
         $template = count($args) > 1 ? $args[0] : 'template';
         $link = count($args) > 1 ? $args[1] : $args[0];
 
-        if (preg_match('/^http(s):\/{2}app\.asana\.com\/.*$/', $link)) {
+        if (preg_match('/^http(s)?:\/{2}app\.asana\.com\/.*$/', $link)) {
             $arrResult = [
                 'template' => $template,
                 'link' => $link
