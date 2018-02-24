@@ -52,7 +52,7 @@ class UpdaterLib
             }
         }
         if ($this->update) {
-            $this->stdConfig->update = time() + 2592000; // 30 days
+            $this->stdConfig->update = time() + (cfg::FREQUENCY_UPDATE * cfg::DAYS);
             $fileContent = json_encode($this->stdConfig);
             File::createFile($this->fileName, $fileContent);
         }
