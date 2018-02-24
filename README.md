@@ -71,7 +71,7 @@ asana make https://app.asana.com/0/24457451196652/567808915565777
 asana make --mr https://app.asana.com/0/24457451196652/567808915565777
 ```
 
-__IMPORTANTE__: No decorrer da execução deste comando, você será indagado com algumas questões importantes para construção da descrição. Para sair do modo de inserção de texto basta digitar `\ok!` e pressionar __enter__.
+>__IMPORTANTE__: No decorrer da execução deste comando, você será indagado com algumas questões importantes para construção da descrição. Para sair do modo de inserção de texto basta digitar `\ok!` e pressionar __enter__.
 
 1. Primeiro será perguntado qual a solução usada para resolver a task;
 2. Depois será perguntado se há alguma observação para a task; e
