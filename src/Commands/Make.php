@@ -86,7 +86,7 @@ class Make implements Command
         $template = count($args) > 1 ? $args[0] : 'template';
         $link = count($args) > 1 ? $args[1] : $args[0];
 
-        if (preg_match('/^http(s):\/{2}app\.asana\.com\/.*$/', $link)) {
+        if (preg_match('/^http(s)?:\/{2}app\.asana\.com\/.*$/', $link)) {
             $arrResult = [
                 'template' => $template,
                 'link' => $link
@@ -223,7 +223,7 @@ class Make implements Command
         foreach ($hashTags as $name) {
             $templateLike = $template;
             $templateLike = str_replace(cfg::TAG, $name, $templateLike);
-            $value[] = '[\#' . $name . '](' . $templateLike . ')';
+            $value[] = '[' . $name . '](' . $templateLike . ')';
         }
         if (count($value) > 0) {
             $hashTags = implode(', ', $value);
