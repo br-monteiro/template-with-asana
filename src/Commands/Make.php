@@ -31,23 +31,15 @@ class Make implements Command
      */
     public function run()
     {
-        $args = $this->options->getArgs();
-
-        if (count($args) > 2) {
-            $this->bootstrap->fatal("Hum ... something went wrong. Check the correct command syntax.");
-            exit;
-        }
-
-        $template = count($args) > 1 ? $args[0] : 'template';
-        $link = count($args) > 1 ? $args[1] : $args[0];
-        $taskId = $this->getTaskId($link);
+        $args = $this->validateArgs();
+        $taskId = $this->getTaskId($args['link']);
         $isMergeRequest = $this->options->getOpt('mr') ? true : false;
-        $templateContent = $this->loadTemplate($template);
+        $templateContent = $this->loadTemplate($args['template']);
         $taskProperties = $this->asana->getClient()->get('/tasks/' . $taskId, null);
         task::setProperties($taskProperties);
 
         // create a template
-        $templateContent = $this->writeLink($templateContent, $link);
+        $templateContent = $this->writeLink($templateContent, $args['link']);
         $templateContent = $this->writeDescription($templateContent, task::getDescription());
         $templateContent = $this->writeTags($templateContent, task::getTags());
         $templateContent = $this->writeFollowers($templateContent, task::getFollowers());
@@ -74,6 +66,37 @@ class Make implements Command
         echo str_repeat('-', 30) . "\n";
         echo $templateContent;
         echo "\n" . str_repeat('-', 30) . "\n";
+    }
+
+    /**
+     * Validate input args
+     *
+     * @return array
+     */
+    private function validateArgs(): array
+    {
+        $arrResult = ['template', 'link'];
+        $args = $this->options->getArgs();
+
+        if (count($args) > 2 || empty($args)) {
+            $this->bootstrap->info("Run: asana --help");
+            $this->bootstrap->fatal("Hum... something went wrong. Check the correct command syntax.");
+        }
+
+        $template = count($args) > 1 ? $args[0] : 'template';
+        $link = count($args) > 1 ? $args[1] : $args[0];
+
+        if (preg_match('/^http(s):\/{2}app\.asana\.com\/.*$/', $link)) {
+            $arrResult = [
+                'template' => $template,
+                'link' => $link
+            ];
+        } else {
+            $this->bootstrap->info("Run: asana --help");
+            $this->bootstrap->fatal("The Task URL is not valid! =(");
+        }
+
+        return $arrResult;
     }
 
     /**
