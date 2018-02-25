@@ -27,7 +27,7 @@ cd ~/tamplate-with-asana && bash ./setup.sh
 >__IMPORTANTE__: Será solicitado a senha de root do Sistema Operacional, mas não se preocupe, esta solicitação servirá apenas para setar permissão de execução (`+x`) e criação do _link simbólico_ (`ln -s`) para o arquivo `index.php`.
 
 ### Gerando um Token de Acesso Pessoal
-Para que o sistema funcione corretamente, é necessário ter um Token de Acesso Pessoal. Este token será usado para consultar os dados das tasks criadas no Asana. Para gerar o token, siga a documentação oficial da API do Asana disponível em https://asana.com/pt/guide/help/api/api
+Para que o sistema funcione corretamente, é necessário ter um Token de Acesso Pessoal. Esse token será usado para consultar os dados das tasks criadas no Asana. Para gerar o token, siga a documentação oficial da API do Asana disponível em https://asana.com/pt/guide/help/api/api
 
 >__IMPORTANTE__: O Token gerado deve ser do tipo __PERSONAL ACCESS TOKEN__.
 
@@ -54,7 +54,7 @@ asana make [-m|--mr] [<template-name>] <link-da-task>
 Explicando a sintaxe:
 
 1. __\[-m|--mr]__ Indica que a descrição que queremos gerar será para um Merge Request (Gitlab). Por padrão o sistema gera descrições para Pull Request (Github). __Este parâmetro é obrigatório apenas para MRs__.
-2. __\[\<template-name>]__ Indica qual o template queremos usar na geração das descrições. Por padrão o comando __make__ usa o template principal (`template.md`). É possível criar seus próprios templates e usar normalmente com o comando __make__, para isso basta salvar o seus templates personalizados no diretório `~/tamplate-with-asana/templates/` com extensão `*.md`. __Este parâmetro não é obrigatório__.
+2. __\[\<template-name>]__ Indica qual o template queremos usar na geração das descrições. Por padrão o comando __make__ usa o template principal (`template.md`). É possível criar seus próprios templates e usar normalmente com o comando __make__, para isso basta salvar os seus templates personalizados no diretório `~/tamplate-with-asana/templates/` com extensão `*.md`. __Este parâmetro não é obrigatório__.
 3. __\<link-da-task>__ Indica qual task será usada para extração de informações. __Este parâmetro é obrigatório__.
 
 Exemplo de execução do comando __make__:
