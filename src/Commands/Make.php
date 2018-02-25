@@ -239,7 +239,7 @@ class Make implements Command
             return str_replace(cfg::HASHTAG, $hashTags, $templateContent);
         }
 
-        return '`none`';
+        return str_replace(cfg::HASHTAG, '', $templateContent);
     }
 
     /**
@@ -263,6 +263,9 @@ class Make implements Command
      */
     private function writeObservation(string $templateContent, string $observation): string
     {
+        if (empty($observation)) {
+            $observation = '`none`';
+        }
         return str_replace(cfg::OBSERVATION, $observation, $templateContent);
     }
 
@@ -270,7 +273,7 @@ class Make implements Command
      * Capture user input
      *
      * @param array $text
-     * @return type
+     * @return array
      */
     private function entryText(array &$text)
     {
