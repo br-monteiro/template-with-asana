@@ -21,9 +21,7 @@ class Make implements Command
     {
         $this->options = $options;
         $this->bootstrap = $bootstrap;
-        $this->config = $this->loadConfig();
-        $this->asana = new AsanaClient();
-        $this->asana->setToken($this->config->token);
+        $this->validateToken();
     }
 
     /**
@@ -66,6 +64,17 @@ class Make implements Command
         echo str_repeat('-', 30) . "\n";
         echo $templateContent;
         echo "\n" . str_repeat('-', 30) . "\n";
+    }
+
+    private function validateToken()
+    {
+        $this->config = $this->loadConfig();
+        $this->asana = new AsanaClient();
+        if (isset($this->config->token)) {
+            $this->asana->setToken($this->config->token);
+        } else {
+            $this->bootstrap->fatal("You don't have access token. =/");
+        }
     }
 
     /**
