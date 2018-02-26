@@ -67,7 +67,7 @@ class Make implements Command
     }
 
     /**
-     * Prepare ths terms of hashtags into URL
+     * Prepare the terms of hashtags into URL
      *
      * @param string $value The term
      * @return string The term formatted
