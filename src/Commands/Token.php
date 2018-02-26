@@ -22,7 +22,7 @@ class Token implements Command
     public function run()
     {
         $tokenValue = $this->validateArgs();
-        $fileName = __DIR__ . cfg::FILE_CONFIG;
+        $fileName = __DIR__ . cfg::FILE_CONFIG ?: '';
         $stdToken = null;
 
         if (File::validateFile($fileName)) {

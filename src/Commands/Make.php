@@ -66,6 +66,20 @@ class Make implements Command
         echo "\n" . str_repeat('-', 30) . "\n";
     }
 
+    /**
+     * Prepare the terms of hashtags into URL
+     *
+     * @param string $value The term
+     * @return string The term formatted
+     */
+    private function prepareTermsForUrlHashtags(string $value): string
+    {
+        return preg_replace('/\s/', '+', $value);
+    }
+
+    /**
+     * Validate Access Token
+     */
     private function validateToken()
     {
         $this->config = $this->loadConfig();
@@ -231,7 +245,8 @@ class Make implements Command
 
         foreach ($hashTags as $name) {
             $templateLike = $template;
-            $templateLike = str_replace(cfg::TAG, $name, $templateLike);
+            $formattedTerm = $this->prepareTermsForUrlHashtags($name);
+            $templateLike = str_replace(cfg::TAG, $formattedTerm, $templateLike);
             $value[] = '[' . $name . '](' . $templateLike . ')';
         }
         if (count($value) > 0) {

@@ -15,13 +15,13 @@ Este projeto foi pensado para auxiliar o time de ATD da Chaordic Systems na cria
 Para instalar o projeto na sua máquina, basta realizar o clone do repositório. Abaixo é possível visualizar o comando de clone do repositório:
 
 ```bash
-cd ~/ && git clone git@github.com:br-monteiro/tamplate-with-asana.git
+cd ~/ && git clone git@github.com:br-monteiro/template-with-asana.git
 ```
 
 Após clonar o projeto, entre no diretório `tamplate-with-asana` e execute o arquivo de setup do projeto. Abaixo é possível visualizar o comando de execução do arquivo de setup:
 
 ```bash
-cd ~/tamplate-with-asana && bash ./setup.sh
+cd ~/template-with-asana && bash ./setup.sh
 ```
 
 >__IMPORTANTE__: Será solicitado a senha de root do Sistema Operacional, mas não se preocupe, esta solicitação servirá apenas para setar permissão de execução (`+x`) e criação do _link simbólico_ (`ln -s`) para o arquivo `index.php`.
