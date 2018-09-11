@@ -82,18 +82,8 @@ Ao final da execução será impresso no terminal a descrição gerada para o MR
 ------------------------------
 #### Asana task
 https://app.asana.com/0/24457451196652/567808915565777
-
-#### Description
-Migrar OnSite para HTTPS ou Prococolo free
-
-#### Tags
-`ATD`, `CC:OnSite`, `T1`
-#### Followers
-`Breno`, `Edson Monteiro`
-
-#### Solution
+## Solution
 Alterado os endereços que estavam setados como HTTP para Free Protocol
-
 #### Observation
 Os endereços que já estavam setados como HTTPS foram alterados para Free Protocol
 
