@@ -48,13 +48,13 @@ asana token 0/46a1d3f0c4da375c36a9a45479209307
 O fluxo de geração de descrição é bem simples, e pode ser feito com o mando __make__. A sintaxe do comando pode ser observada abaixo:
 
 ```bash
-asana make [-m|--mr] [<template-name>] <link-da-task>
+asana make [-m|--mr] [template-name] <link-da-task>
 ```
 
 Explicando a sintaxe:
 
 1. __\[-m|--mr]__ Indica que a descrição que queremos gerar será para um Merge Request (Gitlab). Por padrão o sistema gera descrições para Pull Request (Github). __Este parâmetro é obrigatório apenas para MRs__.
-2. __\[\<template-name>]__ Indica qual o template queremos usar na geração das descrições. Por padrão o comando __make__ usa o template principal (`template.md`). É possível criar seus próprios templates e usar normalmente com o comando __make__, para isso basta salvar os seus templates personalizados no diretório `~/tamplate-with-asana/templates/` com extensão `*.md`. __Este parâmetro não é obrigatório__.
+2. __\[template-name]__ Indica qual o template queremos usar na geração das descrições. Por padrão o comando __make__ usa o template principal (`template.md`). É possível criar seus próprios templates e usar normalmente com o comando __make__, para isso basta salvar os seus templates personalizados no diretório `~/tamplate-with-asana/templates/` com extensão `*.md`. __Este parâmetro não é obrigatório__.
 3. __\<link-da-task>__ Indica qual task será usada para extração de informações. __Este parâmetro é obrigatório__.
 
 Exemplo de execução do comando __make__:

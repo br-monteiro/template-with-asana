@@ -7,4 +7,4 @@
 #### Observation
 %OBSERVATION%
 
-%HASHTASG%
+%HASHTAGS%
