@@ -15,6 +15,6 @@ class Config
     const DESCRIPTION = '%DESCRIPTION%';
     const SOLUTION = '%SOLUTION%';
     const OBSERVATION = '%OBSERVATION%';
-    const HASHTAG = '%HASHTASG%';
+    const HASHTAG = '%HASHTAGS%';
     const FOLLOWER = '%FOLLOWER%';
 }
