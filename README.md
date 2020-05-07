@@ -79,7 +79,7 @@ asana make --mr https://app.asana.com/0/24457451196652/567808915565777
 
 Ao final da execução será impresso no terminal a descrição gerada para o MR ou PR. O resultado se parece com o seguinte:
 
-------------------------------
+```markdown
 #### Asana task
 https://app.asana.com/0/24457451196652/567808915565777
 ## Solution
@@ -90,7 +90,7 @@ Os endereços que já estavam setados como HTTPS foram alterados para Free Proto
 [https](https://github.com/search?utf8=✓&q=org%3Achaordic+https&type=issues),
 [http](https://github.com/search?utf8=✓&q=org%3Achaordic+http&type=issues),
 [OnSite](https://github.com/search?utf8=✓&q=org%3Achaordic+OnSite&type=issues)
-------------------------------
+```
 
 ### Créditos
 
